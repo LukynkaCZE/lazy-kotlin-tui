@@ -9,19 +9,31 @@ object Instance {
 }
 
 fun main() {
+//
+//    val text = drawableText {
+//        size = Vector2(20, 5)
+//        position = Vector2(5 ,5)
+//        text.value = "The size is ${terminal.width}x${terminal.height}"
+//        hasBorder = true
+//    }
 
-    val text = drawableText {
-        size = Vector2(20, 5)
-        position = Vector2(5 ,5)
-        text.value = "The size is ${terminal.width}x${terminal.height}"
+    val textList = drawableTextListContainer {
+        size = Vector2(30, 30)
+        position = Vector2(5, 5)
+        list.add("Line 1")
+        list.add("suuuuper looooong line")
+        list.add("Line 3")
+        list.add("Line 4")
+        list.add("test test")
         hasBorder = true
+        autoSizeAxis = AutoSizeAxis.Y
     }
 
     val screen = screen {
         size = Vector2(terminal.width, terminal.height)
         hasBorder = true
         children = mutableListOf(
-            text,
+            textList,
             drawableRectangle {
                 size = Vector2(30, 10)
                 position = Vector2(30, 20)
@@ -41,7 +53,7 @@ fun main() {
         if(prevHeight != terminal.height || prevWidth != terminal.width) {
             clearScreen()
             screen.resize(terminal.width, terminal.height)
-            text.text.value = "The size is ${terminal.width}x${terminal.height}"
+//            text.text.value = "The size is ${terminal.width}x${terminal.height}"
             screen.render()
             prevHeight = terminal.height
             prevWidth = terminal.width

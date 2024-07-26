@@ -9,9 +9,6 @@ abstract class Drawable {
 
     var hasBorder: Boolean = false
 
-    //TODO Inherit size from parent
-    open var autoSizeAxis: AutoSizeAxis = AutoSizeAxis.NONE
-
     var children: MutableList<Drawable> = mutableListOf()
 
     lateinit var buffer: Array<CharArray>
@@ -113,5 +110,4 @@ enum class AutoSizeAxis {
     X,
     Y,
     BOTH,
-    NONE
 }
